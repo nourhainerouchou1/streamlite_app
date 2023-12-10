@@ -1,4 +1,3 @@
-from urllib import request
 import streamlit as st
 #import tensorflow as tf
 import numpy as np
@@ -21,7 +20,7 @@ app_mode = st.sidebar.selectbox("Select Page",["Home","About Project","Predictio
 
 # Main Page
 if app_mode == "Home":
-    st.header("FRUITS & VEGETABLES RECOGNITION SYSTEM")
+    st.header("Fruits🍍Vegetable🍅 Classification")
     image_path = 'frigo_illu.png'
     image = Image.open(image_path)
     st.image(image, caption="Fruits & Vegetables Recognition System", use_column_width=True)
@@ -35,16 +34,16 @@ elif app_mode == "About Project":
     # Displaying Images
     st.subheader("Visualisation des données")
     fruits_images = [
-        'https://raw.githubusercontent.com/nourhainerouchou1/streamlite_app/main/matr.png',
-        'https://raw.githubusercontent.com/nourhainerouchou1/streamlite_app/main/vis.png',
-        'https://raw.githubusercontent.com/nourhainerouchou1/streamlite_app/main/vis2.png'
+        'matr.PNG',
+        'vis.png',
+        'vis2.png'
     ]
 
     captions = ["Confusion Matrix", "Training Accuracy & Validation Accuracy", "Training Loss & Validation Loss"]
 
-    for img_url, caption in zip(fruits_images, captions):
-     image = Image.open(request.get(img_url, stream=True).raw)
-    st.image(image, caption=caption, use_column_width=True)
+    for img_path, caption in zip(fruits_images, captions):
+        image = Image.open(fruits_images)
+        st.image(image, caption=caption, use_column_width=True)
     # Rest of the content
     st.subheader("About Dataset")
     st.text("This dataset contains images of the following food items:")
