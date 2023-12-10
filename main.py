@@ -6,7 +6,7 @@ from PIL import Image
 
 #Tensorflow Model Prediction
 def model_prediction(test_image):
-    model = tf.keras.models.load_model(r'C:\Users\Asus\Desktop\dataset\VStrained_model.h5')
+    model = tf.keras.models.load_model('VStrained_model.h5')
     image = tf.keras.preprocessing.image.load_img(test_image, target_size=(224, 224))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
     input_arr = np.array([input_arr]) #convert single image to batch
@@ -21,7 +21,7 @@ app_mode = st.sidebar.selectbox("Select Page",["Home","About Project","Predictio
 # Main Page
 if app_mode == "Home":
     st.header("FRUITS & VEGETABLES RECOGNITION SYSTEM")
-    image_path = r'C:\Users\Asus\Desktop\frigo_illu.png'
+    image_path = 'frigo_illu.png'
     image = Image.open(image_path)
     st.image(image, caption="Fruits & Vegetables Recognition System", use_column_width=True)
 
@@ -34,9 +34,9 @@ elif app_mode == "About Project":
     # Displaying Images
     st.subheader("Visualisation des données")
     fruits_images = [
-        r'C:\Users\Asus\Desktop\dataset\matr.png',
-        r'C:\Users\Asus\Desktop\dataset\vis.png',
-        r'C:\Users\Asus\Desktop\dataset\vis2.png'
+        'matr.png',
+        'vis.png',
+        'vis2.png'
     ]
 
     captions = ["Confusion Matrix", "Training Accuracy & Validation Accuracy", "Training Loss & Validation Loss"]
