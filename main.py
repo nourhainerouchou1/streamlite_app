@@ -1,3 +1,4 @@
+from urllib import request
 import streamlit as st
 #import tensorflow as tf
 import numpy as np
@@ -42,7 +43,7 @@ elif app_mode == "About Project":
     captions = ["Confusion Matrix", "Training Accuracy & Validation Accuracy", "Training Loss & Validation Loss"]
 
     for img_url, caption in zip(fruits_images, captions):
-     image = Image.open(requests.get(img_url, stream=True).raw)
+     image = Image.open(request.get(img_url, stream=True).raw)
     st.image(image, caption=caption, use_column_width=True)
     # Rest of the content
     st.subheader("About Dataset")
