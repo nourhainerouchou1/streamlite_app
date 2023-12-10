@@ -34,16 +34,16 @@ elif app_mode == "About Project":
     # Displaying Images
     st.subheader("Visualisation des données")
     fruits_images = [
-        'matr.png',
-        'vis.png',
-        'vis2.png'
+        'https://raw.githubusercontent.com/nourhainerouchou1/streamlite_app/main/matr.png',
+        'https://raw.githubusercontent.com/nourhainerouchou1/streamlite_app/main/vis.png',
+        'https://raw.githubusercontent.com/nourhainerouchou1/streamlite_app/main/vis2.png'
     ]
 
     captions = ["Confusion Matrix", "Training Accuracy & Validation Accuracy", "Training Loss & Validation Loss"]
 
-    for img_path, caption in zip(fruits_images, captions):
-        image = Image.open(img_path)
-        st.image(image, caption=caption, use_column_width=True)
+    for img_url, caption in zip(fruits_images, captions):
+     image = Image.open(requests.get(img_url, stream=True).raw)
+    st.image(image, caption=caption, use_column_width=True)
     # Rest of the content
     st.subheader("About Dataset")
     st.text("This dataset contains images of the following food items:")
